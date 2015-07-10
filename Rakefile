@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "tiyatr-data"
   gem.homepage = "http://github.com/rendekarf/tiyatr-data"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Data layer for project Tiyatr.}
+  gem.description = %Q{This gem is a middle layer that talks to an api and responds to a rails app.}
   gem.email = "me@rendekarf.in"
   gem.authors = ["Arif Sirri Ozcelik"]
   # dependencies defined in Gemfile
