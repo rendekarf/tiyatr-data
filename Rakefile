@@ -21,6 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{This gem is a middle layer that talks to an api and responds to a rails app.}
   gem.email = "me@rendekarf.in"
   gem.authors = ["Arif Sirri Ozcelik"]
+  # gem.homepage
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
