@@ -21,6 +21,8 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{This gem is a middle layer that talks to an api and responds to a rails app.}
   gem.email = "me@rendekarf.in"
   gem.authors = ["Arif Sirri Ozcelik"]
+  gem.files.include 'lib/tiyatr-data/*'
+  gem.files.include 'lib/tiyatr-data/models/*'
   # gem.homepage
   # dependencies defined in Gemfile
 end
