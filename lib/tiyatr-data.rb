@@ -4,6 +4,7 @@ module TiyatrData
 
 	class Configuration
 		attr_accessor :api_root
+		attr_accessor :access_token
 	end
 
 	class << self
@@ -12,7 +13,8 @@ module TiyatrData
 		def configure &block
 			@config ||= TiyatrData::Configuration.new
 			yield(config)
-			config.api_root = DefaultApiRoot unless config.api_root.present?			
+			config.api_root = DefaultApiRoot unless config.api_root.present?
+			config.access_token = 'no access token' unless config.access_token.present?			
 		end
 	end
 	

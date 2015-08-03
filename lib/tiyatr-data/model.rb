@@ -43,7 +43,7 @@ module TiyatrData
 							response = RestClient.get(
 								self.to_api_path + "/#{id}/#{resources.to_s.pluralize}",
 								params: {filter: params.to_json},
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: [], message: 'ID not present'}
@@ -71,7 +71,7 @@ module TiyatrData
 							response = RestClient.get(
 								self.to_api_path + "/#{id}/#{resources.to_s.pluralize}/count",
 								params: {filter: params.to_json},
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -88,7 +88,7 @@ module TiyatrData
 						if(id.present? && fk.present?)
 							response = RestClient.get(
 								self.to_api_path + "/#{id}/#{resources.to_s.pluralize}/#{fk}",
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
@@ -105,7 +105,7 @@ module TiyatrData
 				#		if(id.present? && fk.present?)
 				#			response = RestClient.delete(
 				#				self.to_api_path + "/#{id}/#{resources.to_s.pluralize}/#{fk}",
-				#				'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+				#				'Authorization' => TiyatrData.config.access_token
 				#			)
 				#		else
 				#			response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
@@ -122,7 +122,7 @@ module TiyatrData
 						if(id.present? && fk.present?)
 							response = RestClient.delete(
 								self.to_api_path + "/#{id}/#{resources.to_s.pluralize}/rel/#{fk}",
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
@@ -149,7 +149,7 @@ module TiyatrData
 							response = RestClient.post(
 								self.to_api_path + "/#{id}/#{resources.to_s.pluralize}",
 								data,
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
@@ -181,7 +181,7 @@ module TiyatrData
 				#			response = RestClient.put(
 				#				self.to_api_path + "/#{id}/#{resources.to_s.pluralize}/#{fk}",
 				#				data,
-				#				'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+				#				'Authorization' => TiyatrData.config.access_token
 				#			)
 				#		else
 				#			response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
@@ -213,7 +213,7 @@ module TiyatrData
 							response = RestClient.put(
 								self.to_api_path + "/#{id}/#{resources.to_s.pluralize}/rel/#{fk}",
 								data,
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
@@ -232,7 +232,7 @@ module TiyatrData
 						if(id.present?)
 							response = RestClient.get(
 								self.to_api_path + "/#{id}/#{resource.to_s.singularize}",
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -251,7 +251,7 @@ module TiyatrData
 						if(id.present?)
 							response = RestClient.get(
 								self.to_api_path + "/#{id}/#{resource.to_s.singularize}",
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -278,7 +278,7 @@ module TiyatrData
 							response = RestClient.post(
 								self.to_api_path + "/#{id}/#{resource.to_s.singularize}",
 								data,
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -305,7 +305,7 @@ module TiyatrData
 							response = RestClient.put(
 								self.to_api_path + "/#{id}/#{resource.to_s.singularize}",
 								data,
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -323,7 +323,7 @@ module TiyatrData
 							response = RestClient.put(
 								self.to_api_path + "/#{id}/#{resource.to_s.singularize}",
 								{"#{self.to_s.split('::').last.underscore.singularize}_id" => nil},
-								'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+								'Authorization' => TiyatrData.config.access_token
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -344,7 +344,7 @@ module TiyatrData
 				response = RestClient.get(
 					self.to_api_path,
 					params: {filter: params.to_json},
-					'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+					'Authorization' => TiyatrData.config.access_token
 				)
 			rescue Exception => e
 				handle_exception e
@@ -359,7 +359,7 @@ module TiyatrData
 					response = RestClient.get(
 						self.to_api_path + "/#{id}",
 						params: {filter: params.to_json},
-						'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+						'Authorization' => TiyatrData.config.access_token
 					)
 				else
 					response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -374,7 +374,7 @@ module TiyatrData
 				if(id.present?)
 					response = RestClient.get(
 						self.to_api_path + "/#{id}/exists",
-						'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+						'Authorization' => TiyatrData.config.access_token
 					)
 				else
 					response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -391,7 +391,7 @@ module TiyatrData
 				response = RestClient.get(
 					self.to_api_path + '/count',
 					params: {filter: params.to_json},
-					'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+					'Authorization' => TiyatrData.config.access_token
 				)
 			rescue Exception => e
 				handle_exception e
@@ -405,7 +405,7 @@ module TiyatrData
 				response = RestClient.get(
 					self.to_api_path + '/findOne',
 					params: {filter: params.to_json},
-					'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+					'Authorization' => TiyatrData.config.access_token
 				)
 			rescue Exception => e
 				handle_exception e
@@ -420,7 +420,7 @@ module TiyatrData
 					response = RestClient.post(
 						self.to_api_path,
 						data,
-						'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+						'Authorization' => TiyatrData.config.access_token
 					)
 				end
 			rescue Exception => e
@@ -433,7 +433,7 @@ module TiyatrData
 				if(id.present?)
 					response = RestClient.delete(
 						self.to_api_path + "/#{id}",
-						'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+						'Authorization' => TiyatrData.config.access_token
 					)
 				else
 					response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -449,7 +449,7 @@ module TiyatrData
 					response = RestClient.put(
 						self.to_api_path + "/#{id}",
 						data,
-						'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+						'Authorization' => TiyatrData.config.access_token
 					)
 				else
 					response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
@@ -470,7 +470,7 @@ module TiyatrData
 						self.to_api_path + '/update',
 						{params: {where: params[:where].to_json}},
 						data,
-						'Authorization' => 'I859RUusnqDk4sI1pWshH4i5rECENY1LVHypCsOBxCjTJO5mA1iISgaE1jyOSwnp'
+						'Authorization' => TiyatrData.config.access_token
 					)
 				end
 			rescue Exception => e
