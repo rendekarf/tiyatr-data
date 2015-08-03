@@ -1,5 +1,21 @@
 module TiyatrData
-	VERSION = File.read(File.expand_path('../../VERSION', __FILE__))
+	Version = File.read(File.expand_path('../../VERSION', __FILE__))
+	DefaultApiRoot = 'localhost:3000/api'
+
+	class Configuration
+		attr_accessor :api_root
+	end
+
+	class << self
+		attr_accessor :config
+
+		def configure &block
+			@config ||= TiyatrData::Configuration.new
+			yield(config)
+			config.api_root = DefaultApiRoot unless config.api_root.present?			
+		end
+	end
+	
 end
 
 require 'rest-client'

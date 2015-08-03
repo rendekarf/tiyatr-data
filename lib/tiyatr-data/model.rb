@@ -1,8 +1,6 @@
 module TiyatrData
 
 	class Model
-
-		@@api_root = 'http://localhost:3000/api' # read from tiyatr-data.yml
 		
 		class << self
 
@@ -482,7 +480,7 @@ module TiyatrData
 			end
 
 			def to_api_path
-				@@api_root + '/' + self.to_s.split('::').last.underscore.pluralize
+				TiyatrData.api_root + '/' + self.to_s.split('::').last.underscore.pluralize
 			end
 		end
 	end
