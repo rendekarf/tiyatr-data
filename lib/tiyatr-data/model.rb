@@ -7,6 +7,7 @@ module TiyatrData
 			private
 
 			def handle_exception e
+				byebug
 				error = JSON.parse(e.response)['error']
 				OpenStruct.new code: error['statusCode'] || error['status'], result: nil, message: error['message']
 			end
@@ -480,7 +481,7 @@ module TiyatrData
 			end
 
 			def to_api_path
-				TiyatrData.api_root + '/' + self.to_s.split('::').last.underscore.pluralize
+				TiyatrData.config.api_root + '/' + self.to_s.split('::').last.underscore.pluralize
 			end
 		end
 	end
