@@ -2,13 +2,13 @@ module TiyatrData
   class RecursiveOpenStruct
     # options:
     #   :exclude => [keys] - keys need to be symbols 
-    def initialize(hash, options = {})
+    def self.convert(hash, options = {})
       convert_hash_to_ostruct_recursive(hash, options) 
     end
 
     private
 
-    def convert_hash_to_ostruct_recursive(hash, options)
+    def self.convert_hash_to_ostruct_recursive(hash, options)
       result = hash
       if result.is_a? Hash
         result = result

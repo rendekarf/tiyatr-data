@@ -8,7 +8,7 @@ module TiyatrData
 
 			def handle_exception e, result
 				error = JSON.parse(e.response)['error']
-				RecursiveOpenStruct.new code: error['statusCode'] || error['status'], result: result, message: error['message']
+				RecursiveOpenStruct.convert code: error['statusCode'] || error['status'], result: result, message: error['message']
 			end
 
 			def build_api_response response
@@ -17,9 +17,9 @@ module TiyatrData
 						result = nil
 					else
 						parsed_response = JSON.parse(response)
-						result = (parsed_response.class == Hash ? RecursiveOpenStruct.new(parsed_response) : parsed_response.map{|res| RecursiveOpenStruct.new(res)})
+						result = (parsed_response.class == Hash ? RecursiveOpenStruct.convert(parsed_response) : parsed_response.map{|res| RecursiveOpenStruct.convert(res)})
 					end
-					RecursiveOpenStruct.new code: response.code, result: result
+					RecursiveOpenStruct.convert code: response.code, result: result
 				else
 					response
 				end
