@@ -25,6 +25,7 @@ require 'active_support'
 require 'active_support/core_ext'
 
 require 'byebug'
+require 'recursive-open-struct'
 
 require 'tiyatr-data/model'
 require 'tiyatr-data/filters'
