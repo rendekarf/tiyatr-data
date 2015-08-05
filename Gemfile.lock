@@ -64,6 +64,7 @@ GEM
     rake (10.4.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    recursive-open-struct (0.6.5)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -97,6 +98,7 @@ DEPENDENCIES
   byebug
   jeweler (~> 2.0.1)
   rdoc (~> 3.12)
+  recursive-open-struct
   rest-client
   rspec (~> 2.8.0)
   simplecov
