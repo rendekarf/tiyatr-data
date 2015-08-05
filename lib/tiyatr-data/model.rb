@@ -148,8 +148,9 @@ module TiyatrData
 						if(id.present? && data.present?)
 							response = RestClient.post(
 								self.to_api_path + "/#{id}/#{resources.to_s.pluralize}",
-								data,
-								'Authorization' => TiyatrData.config.access_token
+								data.to_json,
+								'Authorization' => TiyatrData.config.access_token,
+								content_type: :json
 							)
 						else
 							response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
@@ -419,8 +420,9 @@ module TiyatrData
 				else
 					response = RestClient.post(
 						self.to_api_path,
-						data,
-						'Authorization' => TiyatrData.config.access_token
+						data.to_json,
+						'Authorization' => TiyatrData.config.access_token,
+						content_type: :json
 					)
 				end
 			rescue Exception => e
