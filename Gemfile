@@ -16,4 +16,3 @@ end
 gem 'rest-client'
 gem 'activesupport'
 gem 'byebug'
-gem 'recursive-open-struct'

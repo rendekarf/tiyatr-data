@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "lib/tiyatr-data.rb",
     "lib/tiyatr-data/filters.rb",
     "lib/tiyatr-data/model.rb",
+    "lib/tiyatr-data/recursive_open_struct.rb",
     "lib/tiyatr-data/status_codes.rb",
     "spec/spec_helper.rb",
     "spec/tiyatr-data_spec.rb",
@@ -47,7 +48,6 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rest-client>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_runtime_dependency(%q<byebug>, [">= 0"])
-      s.add_runtime_dependency(%q<recursive-open-struct>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.8.0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
@@ -57,7 +57,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rest-client>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<byebug>, [">= 0"])
-      s.add_dependency(%q<recursive-open-struct>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.8.0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
@@ -68,7 +67,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rest-client>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<byebug>, [">= 0"])
-    s.add_dependency(%q<recursive-open-struct>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.8.0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
