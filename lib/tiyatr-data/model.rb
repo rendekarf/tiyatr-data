@@ -6,10 +6,9 @@ module TiyatrData
 
 			private
 
-			def handle_exception e
-				byebug
+			def handle_exception e, result
 				error = JSON.parse(e.response)['error']
-				OpenStruct.new code: error['statusCode'] || error['status'], result: nil, message: error['message']
+				OpenStruct.new code: error['statusCode'] || error['status'], result: result, message: error['message']
 			end
 
 			def build_api_response response
@@ -50,7 +49,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: [], message: 'ID not present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, []
 					else
 						build_api_response(response)
 					end
@@ -78,7 +77,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -95,7 +94,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -112,7 +111,7 @@ module TiyatrData
 				#			response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
 				#		end
 				#	rescue Exception => e
-				#		handle_exception e
+				#		handle_exception e, nil
 				#	else
 				#		build_api_response(response)
 				#	end
@@ -129,7 +128,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -156,7 +155,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -188,7 +187,7 @@ module TiyatrData
 				#			response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
 				#		end
 				#	rescue Exception => e
-				#		handle_exception e
+				#		handle_exception e, nil
 				#	else
 				#		build_api_response(response)
 				#	end
@@ -220,7 +219,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'Both resource ids need to be present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -239,7 +238,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -258,7 +257,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -285,7 +284,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -312,7 +311,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -330,7 +329,7 @@ module TiyatrData
 							response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 						end
 					rescue Exception => e
-						handle_exception e
+						handle_exception e, nil
 					else
 						build_api_response(response)
 					end
@@ -348,7 +347,7 @@ module TiyatrData
 					'Authorization' => TiyatrData.config.access_token
 				)
 			rescue Exception => e
-				handle_exception e
+				handle_exception e, []
 			else
 				build_api_response response
 			end
@@ -366,7 +365,7 @@ module TiyatrData
 					response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 				end
 			rescue Exception => e
-				handle_exception e
+				handle_exception e, nil
 			else
 				build_api_response(response)
 			end
@@ -381,7 +380,7 @@ module TiyatrData
 					response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 				end
 			rescue Exception => e
-				handle_exception e
+				handle_exception e, nil
 			else
 				build_api_response(response)
 			end
@@ -395,7 +394,7 @@ module TiyatrData
 					'Authorization' => TiyatrData.config.access_token
 				)
 			rescue Exception => e
-				handle_exception e
+				handle_exception e, nil
 			else
 				build_api_response response
 			end
@@ -409,7 +408,7 @@ module TiyatrData
 					'Authorization' => TiyatrData.config.access_token
 				)
 			rescue Exception => e
-				handle_exception e
+				handle_exception e, nil
 			else
 				build_api_response response
 			end
@@ -425,7 +424,7 @@ module TiyatrData
 					)
 				end
 			rescue Exception => e
-				handle_exception e
+				handle_exception e, nil
 			else
 				build_api_response(response)
 			end
@@ -440,7 +439,7 @@ module TiyatrData
 					response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 				end
 			rescue Exception => e
-				handle_exception e
+				handle_exception e, nil
 			else
 				build_api_response(response)
 			end
@@ -456,7 +455,7 @@ module TiyatrData
 					response = {code: StatusCode::BadRequest, result: nil, message: 'ID not present'}
 				end
 			rescue Exception => e
-				handle_exception e
+				handle_exception e, nil
 			else
 				build_api_response(response)
 			end
@@ -475,7 +474,7 @@ module TiyatrData
 					)
 				end
 			rescue Exception => e
-				handle_exception e
+				handle_exception e, []
 			else
 				build_api_response(response)
 			end
